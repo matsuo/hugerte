@@ -8,9 +8,10 @@
     "directory": "modules/oxide-icons-default"
   },
   "main": "dist/js/icons.js",
+  "types": "dist/js/icons.d.ts",
   "scripts": {
     "build": "gulp",
-    "prepublishOnly": "yarn ci",
+    "prepublishOnly": "pnpm run ci",
     "ci": "gulp --no-color"
   },
   "keywords": [

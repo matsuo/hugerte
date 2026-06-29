@@ -45,7 +45,8 @@
       "hugerte/plugins/visualchars/*": ["src/plugins/visualchars/main/ts/*"],
       "hugerte/plugins/wordcount/*": ["src/plugins/wordcount/main/ts/*"],
 
-      "@ephox/wrap-mcagar": ["src/core/test/ts/module/McAgar"]
+      "@ephox/wrap-mcagar": ["src/core/test/ts/module/McAgar"],
+      "@tinymce/oxide-icons-default": ["../oxide-icons-default/dist/js/icons"]
     }
   },
   "include": [
