@@ -611,7 +611,7 @@ describe('browser.hugerte.core.dom.SerializerTest', () => {
   });
 
   it('Protected blocks', () => {
-    const ser = DomSerializer({ fix_list_elements: true });
+    const ser = DomSerializer({ fix_list_elements: true, protect: [ /^<noscript[\s\S]*<\/noscript>$/ ] });
 
     ser.setRules('noscript[test]');
 
