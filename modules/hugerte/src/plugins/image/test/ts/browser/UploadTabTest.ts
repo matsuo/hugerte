@@ -10,7 +10,7 @@ import * as Conversions from 'hugerte/core/file/Conversions';
 import Plugin from 'hugerte/plugins/image/Plugin';
 
 describe('browser.hugerte.plugins.image.UploadTabTest', () => {
-  const src = 'http://moxiecode.cachefly.net/hugerte/v9/images/logo.png';
+  const src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVQYV2P8z8BQz0AEYBxVOHIUAgBGWAgEjLIVfAAAAABJRU5ErkJggg==';
   const b64 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=';
   const hook = TinyHooks.bddSetupLight<Editor>({
     plugins: 'image',
