@@ -507,14 +507,15 @@ module.exports = function (grunt) {
               'modules/hugerte/tools',
               'bin',
               'patches',
-              '.yarnrc',
+              '.npmrc',
               'LICENSE.TXT',
               'README.md',
               'lerna.json',
               'package.json',
+              'pnpm-workspace.yaml',
               'tsconfig*.json',
               '.eslint*.json',
-              'yarn.lock'
+              'pnpm-lock.yaml'
             ]
           },
           {
@@ -855,7 +856,7 @@ module.exports = function (grunt) {
 
     'bedrock-manual': {
       core: {
-        config: 'tsconfig.json',
+        config: 'tsconfig.bedrock.json',
         projectdir: '.',
         stopOnFailure: true,
         testfiles: [
@@ -866,7 +867,7 @@ module.exports = function (grunt) {
         customRoutes: 'src/core/test/json/routes.json'
       },
       atomic: {
-        config: 'tsconfig.json',
+        config: 'tsconfig.bedrock.json',
         projectdir: '.',
         stopOnFailure: true,
         testfiles: [
@@ -875,7 +876,7 @@ module.exports = function (grunt) {
         customRoutes: 'src/core/test/json/routes.json'
       },
       silver: {
-        config: 'tsconfig.json',
+        config: 'tsconfig.bedrock.json',
         testfiles: ['src/themes/silver/test/ts/phantom/**/*Test.ts', 'src/themes/silver/test/ts/browser/**/*Test.ts'],
         stopOnFailure: true,
         overallTimeout: 600000,
@@ -888,17 +889,18 @@ module.exports = function (grunt) {
     'bedrock-auto': {
       standard: {
         browser: grunt.option('bedrock-browser') !== undefined ? grunt.option('bedrock-browser') : 'chrome-headless',
-        config: 'tsconfig.json',
+        config: 'tsconfig.bedrock.json',
         testfiles: ['src/**/test/ts/**/*Test.ts'],
         overallTimeout: 900000,
         singleTimeout: 30000,
         retries: 3,
+        extraBrowserCapabilities: ' --no-sandbox --disable-dev-shm-usage --user-data-dir=/tmp/bedrock-chrome',
         customRoutes: 'src/core/test/json/routes.json',
         name: grunt.option('bedrock-browser') !== undefined ? grunt.option('bedrock-browser') : 'chrome-headless'
       },
       silver: {
         browser: 'phantomjs',
-        config: 'tsconfig.json',
+        config: 'tsconfig.bedrock.json',
         testfiles: ['src/themes/silver/test/ts/phantom/**/*Test.ts', 'src/themes/silver/test/ts/browser/**/*Test.ts', 'src/themes/silver/test/ts/webdriver/*/*Test.ts'],
         stopOnFailure: true,
         overallTimeout: 600000,
@@ -963,7 +965,7 @@ module.exports = function (grunt) {
     'emoji',
     'html-i18n',
     // TODO: Make webpack use the oxide CSS directly
-    // as well as making development easier, then we can update 'yarn dev' to run 'oxide-build' in parallel with 'hugerte-grunt dev'
+    // as well as making development easier, then we can update 'pnpm run dev' to run 'oxide-build' in parallel with 'hugerte-grunt dev'
     // that will save 2-3 seconds on incremental builds
     'copy:ui-skins',
     'copy:content-skins',

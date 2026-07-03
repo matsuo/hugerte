@@ -74,8 +74,7 @@ const addButton = (editor: Editor, id: string, tooltip: string, cmd: string, nod
     tooltip,
     icon: nodeName === ListType.OrderedList ? 'ordered-list' : 'unordered-list',
     onSetup: makeSetupHandler(editor, nodeName),
-    // Need to make sure the button removes rather than applies if a list of the same type is selected
-    onAction: () => editor.queryCommandState(cmd) || styleValue === '' ? editor.execCommand(cmd) : Actions.applyListFormat(editor, nodeName, styleValue)
+    onAction: () => editor.queryCommandState(cmd) ? editor.execCommand('RemoveList') : Actions.applyListFormat(editor, nodeName, styleValue)
   });
 };
 

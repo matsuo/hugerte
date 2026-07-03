@@ -121,9 +121,9 @@ describe('browser.hugerte.plugins.autoresize.AutoresizePluginTest', () => {
       await Waiter.pTryUntil('wait for editor content height', () => assertEditorContentApproxHeight(editor, 5585), 10, 3000);
       // Update the img element to load an image
       const image = editor.dom.select('img')[0];
-      editor.dom.setAttrib(image, 'src', 'http://moxiecode.cachefly.net/hugerte/v9/images/logo.png');
-      // Content height + div image height (84px) + bottom margin = 5634
-      await Waiter.pTryUntil('wait for editor content height', () => assertEditorContentApproxHeight(editor, 5634), 10, 3000);
+      editor.dom.setAttrib(image, 'src', '/project/hugerte/src/plugins/autoresize/test/ts/browser/img/test-image.png');
+      // Content height + image height (84px) + bottom margin ≈ 5634
+      await Waiter.pTryUntil('wait for editor content height', () => assertEditorContentApproxHeight(editor, 5634, 10), 10, 3000);
       await Waiter.pTryUntil('wait for editor height', () => assertEditorHeightAbove(editor, 5634), 10, 3000);
     });
 

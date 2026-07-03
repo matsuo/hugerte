@@ -16,7 +16,7 @@
  * console.log(hugerte.html.Styles().serialize(styles));
  */
 
-import { RgbaColour, Transformations } from '@ephox/acid';
+import { HexColour, RgbaColour, Transformations } from '@ephox/acid';
 import { Obj, Type, Unicode } from '@ephox/katamari';
 
 import { ForceHexColor, URLConverter } from '../OptionTypes';
@@ -273,6 +273,9 @@ const Styles = (settings: StylesSettings = {}, schema?: Schema): Styles => {
                   value = Transformations.rgbaToHexString(RgbaColour.toString(rgba));
                 }
               });
+              if (HexColour.isHexString(value)) {
+                value = '#' + HexColour.hexColour(value).value;
+              }
             }
 
             // Convert URLs and force them into url('value') format

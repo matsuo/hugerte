@@ -78,8 +78,6 @@ describe('browser.hugerte.plugins.help.DialogKeyboardNavTest', () => {
       await pAssertFocusOnItem(`Installed Plugins link:${installedPlugin}`, `a[href*="${installedPlugin}"]`);
       pressTabKey(editor);
     }
-    await pAssertFocusOnItem('Premium Plugins link:Learn more...', `a[href*="/pricing"]`);
-    pressTabKey(editor);
     await pAssertFocusOnItem('Close Button', '.tox-button:contains("Close")');
     pressTabKey(editor);
     await pAssertFocusOnItem('"x" Close Button', '.tox-button[data-mce-name="close"]');

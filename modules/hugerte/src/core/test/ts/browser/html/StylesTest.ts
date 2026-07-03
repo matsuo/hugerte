@@ -250,7 +250,7 @@ describe('browser.hugerte.core.html.StylesTest', () => {
 
   it('TINY-9819: force_hex_color set to "always"', () => {
     const styles = Styles({ force_hex_color: 'always' });
-    assertStyles(styles, 'color: #aabbcc;', 'color: #aabbcc;');
+    assertStyles(styles, 'color: #aabbcc;', 'color: #AABBCC;');
     assertStyles(styles, 'color: rgb(1, 2, 3);', 'color: #010203;');
     assertStyles(styles, 'color: rgba(1, 2, 3, 1);', 'color: #010203;');
     assertStyles(styles, 'color: rgba(1, 2, 3, 0);', 'color: #010203;');
@@ -259,7 +259,7 @@ describe('browser.hugerte.core.html.StylesTest', () => {
 
   it('TINY-9819: force_hex_color set to "rgb_only"', () => {
     const styles = Styles({ force_hex_color: 'rgb_only' });
-    assertStyles(styles, 'color: #aabbcc;', 'color: #aabbcc;');
+    assertStyles(styles, 'color: #aabbcc;', 'color: #AABBCC;');
     assertStyles(styles, 'color: rgb(1, 2, 3);', 'color: #010203;');
     assertStyles(styles, 'color: rgba(1, 2, 3, 1);', 'color: #010203;');
     assertStyles(styles, 'color: rgba(1, 2, 3, 0);', 'color: rgba(1, 2, 3, 0);');

@@ -26,7 +26,7 @@ describe('browser.hugerte.plugins.link.ImageFigureLinkTest', () => {
     const editor = hook.editor();
     editor.setContent(
       '<figure class="image">' +
-        '<img src="http://moxiecode.cachefly.net/hugerte/v9/images/logo.png" />' +
+        '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVQYV2P8z8BQz0AEYBxVOHIUAgBGWAgEjLIVfAAAAABJRU5ErkJggg==" />' +
         '<figcaption>HugeRTE</figcaption>' +
       '</figure>'
     );
@@ -39,7 +39,7 @@ describe('browser.hugerte.plugins.link.ImageFigureLinkTest', () => {
     const editor = hook.editor();
     editor.setContent(
       '<figure class="image">' +
-        '<a href="http://google.com"><img src="http://moxiecode.cachefly.net/hugerte/v9/images/logo.png" /></a>' +
+        '<a href="http://google.com"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVQYV2P8z8BQz0AEYBxVOHIUAgBGWAgEjLIVfAAAAABJRU5ErkJggg==" /></a>' +
         '<figcaption>HugeRTE</figcaption>' +
       '</figure>'
     );

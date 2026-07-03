@@ -70,10 +70,18 @@ const pWaitForAndAssertInputEvents = async (beforeinputEvent: SingletonEvent<Inp
   const assertInputEvent = (): void =>
     inputEvent.on((e) => {
       assert.equal(e.inputType, 'insertFromPaste', 'beforeinput event type should be "insertFromPaste"');
-      assert.isNull(e.data, 'input event data should be null');
+      // Chromium 129-137: e.data is not null when pasting plain text
+      // Chromium >= 138: e.data is once again null
+      if (isNative && browser.isChromium() && browser.version.major < 138) {
+        assert.isNotNull(e.data, 'input event data should not be null');
+      } else {
+        assert.isNull(e.data, 'input event data should be null');
+      }
       const dataTransfer = e.dataTransfer;
       if (isNative && (browser.isFirefox() || browser.isSafari())) {
         assert.equal(dataTransfer?.getData('text/html'), expectedBeforeinputDataTransferHtml, 'input event dataTransfer should contain expected html data');
+      } else if (isNative && browser.isChromium() && browser.version.major >= 143) {
+        assert.isNotNull(dataTransfer, 'input event dataTransfer should not be null');
       } else {
         assert.isNull(dataTransfer, 'input event dataTransfer should be null');
       }
